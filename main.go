@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"source.developers.google.com/golang/web/handlers"
+	"github.com/KongZ/golangweb/handlers"
 )
 
 // Release a server version

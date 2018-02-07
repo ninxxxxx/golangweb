@@ -6,18 +6,17 @@ pipeline {
     }
     environment { 
         image_name = "asia.gcr.io/personal-project/golangweb:1.0.${BUILD_NUMBER}"
+        GOPATH="$WORKSPACE"
     }
     stages {
         stage('Build') {
             steps {
-               sh "export GOPATH=$WORKSPACE"
                sh "go get ./..."
                sh "go build"
             }
         }
         stage('Test') {
             steps {
-               sh "export GOPATH=$WORKSPACE"
                sh "go test"
             }
         }
