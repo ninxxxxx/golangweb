@@ -17,6 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+               sh "export GOPATH=$WORKSPACE"
                sh "go test"
             }
         }
