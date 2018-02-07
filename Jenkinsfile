@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh "mkdir -p $GOPATH/src/github.com/KongZ/golangweb"
-                dir("$GOPATH/src/github.com/KongZ/") {
+                dir("$GOPATH/src/github.com/KongZ/golangweb") {
                     git url: 'git@github.com:KongZ/golangweb.git', credentialsId: 'github', branch: 'master'
                 }
             }
