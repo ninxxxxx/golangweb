@@ -1,0 +1,24 @@
+## riak-vk image version
+## ref: https://hub.docker.com/r/library/cassandra/
+image:
+  repo: "asia.gcr.io/personal-project/golangweb:1.0"
+  pullPolicy: IfNotPresent
+
+## Specify a service type
+## ref: http://kubernetes.io/docs/user-guide/services/
+service:
+  type: LoadBalancer
+
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+resources:
+  requests:
+    memory: 8Mi
+    cpu: 16m
+  limits:
+    memory: 16Mi
+    cpu: 32m
+
+config:
+  domain: yourdomain.com
+  port: 8000

@@ -1,0 +1,42 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: golangweb
+  labels:
+    app: golangweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golangweb
+  template:
+    metadata:
+      labels:
+        app: golangweb
+    spec:
+      containers:
+      - name: golangweb
+        image: asia.gcr.io/personal-project/golangweb:1.0
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 32m
+            memory: 16Mi
+          requests:
+            cpu: 16m
+            memory: 16Mi
+        ports:
+        - name: http
+          containerPort: 8000
+        env:
+        - name: PORT
+          value: "8000"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+      terminationGracePeriodSeconds: 30
