@@ -318,3 +318,45 @@ Getting Start with Jenkins
 ==========================
 It is strongly recommend to use Jenkins pipeline to supports implementing and integrating continuous delivery. The definition of a Jenkins Pipeline is written into a text file (called a Jenkinsfile) which in turn can be committed to a project’s source control repository.
 
+To setup a Jenkins for Google Kubernetes
+1) Install `gcloud`
+```
+# Create an environment variable for the correct distribution
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+
+# Add the Cloud SDK distribution URI as a package source
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Import the Google Cloud Platform public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+# Update the package list and install the Cloud SDK
+sudo apt-get update && sudo apt-get install google-cloud-sdk
+```
+```
+gcloud init
+```
+
+2) Install `kubectl`
+```
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
+
+3) Install `helm`
+```
+wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.0-linux-amd64.tar.gz
+tar -zxvf helm-v2.8.0-linux-amd64.tgz
+mv linux-amd64/helm /usr/local/bin/helm
+```
+
+4) Create Service Account
+5) Copy key file to `/var/lib/jenkins/service-account.json`
+6) Change file owner `chown jenkins:jenkins /var/lib/jenkins/service-account.json`
+7) Change to jenkins user `su jenkins`
+8) Add service account `gcloud auth activate-service-account --key-file=/var/lib/jenkins/service-account.json`
+9) Authenticate container cluster `gcloud container clusters get-credentials {cluster_name} --zone {zone_name} --project {project_id}`
+10) Initialize helm `helm init`
+11) Generate ssh key `ssh-keygen -t rsa -b 4096 -o`
+12) Add ssh key to GitHub
