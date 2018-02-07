@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 1, unit: 'HOURS')
     }
     environment { 
-        image_name = "asia.gcr.io/personal-project-190209/golangweb:1.0.${BUILD_NUMBER}"
+        image_name = "asia.gcr.io/personal-project-190209/golangweb:1.0"
         PATH="$PATH:/usr/lib/go-1.9/bin"
         GOPATH="$WORKSPACE"
     }
@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy') {
             steps {
                sh "gcloud docker -- push ${image_name}"
-               sh "helm install --namespace golang --name ${BUILD_NUMBER} chart/golangweb"
+               sh "helm install --namespace golang --name web chart/golangweb"
             }
         }
     }

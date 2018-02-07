@@ -2,7 +2,7 @@
 ## ref: https://hub.docker.com/r/library/cassandra/
 image:
   repo: "asia.gcr.io/personal-project-190209/golangweb:1.0"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 ## Specify a service type
 ## ref: http://kubernetes.io/docs/user-guide/services/
