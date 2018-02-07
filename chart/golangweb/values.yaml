@@ -1,7 +1,7 @@
 ## riak-vk image version
 ## ref: https://hub.docker.com/r/library/cassandra/
 image:
-  repo: "asia.gcr.io/personal-project/golangweb:1.0"
+  repo: "asia.gcr.io/personal-project-190209/golangweb:1.0"
   pullPolicy: IfNotPresent
 
 ## Specify a service type
@@ -20,5 +20,5 @@ resources:
     cpu: 32m
 
 config:
-  domain: yourdomain.com
+  domain: apps.matshima.com
   port: 8000

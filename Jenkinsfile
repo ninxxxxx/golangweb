@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 1, unit: 'HOURS')
     }
     environment { 
-        image_name = "asia.gcr.io/personal-project/golangweb:1.0.${BUILD_NUMBER}"
+        image_name = "asia.gcr.io/personal-project-190209/golangweb:1.0.${BUILD_NUMBER}"
         PATH="$PATH:/usr/lib/go-1.9/bin"
         GOPATH="$WORKSPACE"
     }
