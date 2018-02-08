@@ -1,7 +1,7 @@
 ## riak-vk image version
 ## ref: https://hub.docker.com/r/library/cassandra/
 image:
-  repo: "asia.gcr.io/personal-project-190209/golangweb:1.0"
+  repo: "asia.gcr.io/cms-container-fortest/golangweb:1.0"
   pullPolicy: Always
 
 ## Specify a service type

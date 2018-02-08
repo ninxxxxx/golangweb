@@ -5,9 +5,9 @@ metadata:
   labels:
     app: golangweb
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: golangweb.apps.matshima.com
+    external-dns.alpha.kubernetes.io/hostname: golangweb.yourdomain.com
 spec:
-  type: LoadBalancer
+  type: LoadBalancer #Clusterip for internal LoadBalancer for external
   ports:
   - name: http
     port: 80

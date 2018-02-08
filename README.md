@@ -161,8 +161,9 @@ You can get a token with single command
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | awk '/^kubernetes-dashboard-token-/{print $1}') | awk '$1=="token:"{print $2}'
 ```
 
-## Deploy Application
-To deploy an application, you need to push a docker image to container registry. To push docker image to GCloud container registry uses
+Deploy Application
+==================
+Before deploy an application, you need to push a docker image to container registry. To push docker image to GCloud container registry uses
 
 ```
 gcloud docker -- push asia.gcr.io/personal-project/golangweb:1.0
@@ -170,6 +171,7 @@ gcloud docker -- push asia.gcr.io/personal-project/golangweb:1.0
 Kubernetes uses Deployment configuration to instruct Kubernetes on how to create and update instances.
 The deployment configuration for this project can be found in directory `kubernetes`
 
+## Deploy Application
 Before deploy an application. It is strongly suggest to create namespace for each application. Namespaces provide a scope for names. Names of resources need to be unique within a namespace, but not across namespaces.
 
 ```
@@ -344,7 +346,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 3) Install `helm`
 ```
-wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.0-linux-amd64.tar.tgz
+wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.0-linux-amd64.tar.gz
 tar -zxvf helm-v2.8.0-linux-amd64.tgz
 mv linux-amd64/helm /usr/local/bin/helm
 ```
