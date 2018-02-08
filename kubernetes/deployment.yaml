@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: golangweb
-        image: asia.gcr.io/personal-project/golangweb:1.0
+        image: asia.gcr.io/personal-project-190209/golangweb:1.0
         imagePullPolicy: IfNotPresent
         resources:
           limits:

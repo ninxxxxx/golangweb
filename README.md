@@ -344,7 +344,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 3) Install `helm`
 ```
-wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.0-linux-amd64.tar.gz
+wget https://storage.googleapis.com/kubernetes-helm/helm-v2.8.0-linux-amd64.tar.tgz
 tar -zxvf helm-v2.8.0-linux-amd64.tgz
 mv linux-amd64/helm /usr/local/bin/helm
 ```
