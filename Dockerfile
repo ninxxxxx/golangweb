@@ -3,11 +3,12 @@ LABEL maintainer="Siri Chongasamethaworn <siri@omise.co>"
 
 RUN apk add --update --no-cache git
 
-ADD . "/go/src/source.developers.google.com/golang/web"
+ADD . "/go/src/github.com/KongZ/golangweb"
 
-WORKDIR /go/src/source.developers.google.com/golang/web
+WORKDIR /go/src/github.com/KongZ/golangweb
 RUN go get ./...
 RUN go install .
 
 VOLUME /data
-ENTRYPOINT [ "/go/bin/web" ]
+
+ENTRYPOINT [ "/go/bin/golangweb" ]
