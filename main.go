@@ -13,6 +13,7 @@ import (
 
 // Release a server version
 const Release = "0.1"
+const w = "0.1"
 
 // How to try it: PORT=8000 go run main.go
 func main() {
