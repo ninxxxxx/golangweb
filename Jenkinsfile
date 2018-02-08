@@ -5,8 +5,8 @@ pipeline {
         timeout(time: 1, unit: 'HOURS')
     }
     environment { 
-        image_name = "asia.gcr.io/personal-project-190209/golangweb:1.0"
-        PATH="$PATH:/usr/lib/go-1.9/bin"
+        image_name = "asia.gcr.io/cms-container-fortest/golangweb:1.0"
+        PATH="$PATH:/usr/lib/go-1.8/bin"
         GOPATH="$WORKSPACE"
     }
     stages {
